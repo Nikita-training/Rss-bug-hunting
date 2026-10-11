@@ -11,11 +11,17 @@ let currentFilter = "all";
 let nextId = 1;
 
 function addTask() {
-  const text = input.value;
-  errorEl.hidden = true;
-  tasks.push({ id: nextId++, text: text, done: false });
-  input.value = "";
-  render();
+  const text = input.value.trim();
+  if (text) {
+    errorEl.hidden = true;
+    tasks.push({ id: nextId++, text: text, done: false });
+    input.value = "";
+    render();
+  }
+  else {
+    errorEl.hidden = false
+    errorEl.textContent = 'Введите текст задачи'
+  }
 }
 
 function toggleTask(id) {
