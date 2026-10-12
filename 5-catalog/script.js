@@ -21,18 +21,19 @@ function getFiltered() {
   const search = searchInput.value;
   const category = categorySelect.value;
   const sort = sortSelect.value;
+  console.log(result)
   if (search) {
     result = result.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()));
   }
-
+  console.log(result)
   if (category !== "all") {
-    result = products.filter((p) => p.category === category);
+    result = result.filter((p) => p.category === category);
   }
 
   if (sort === "desc") {
-    result.sort((a, b) => b.price - a.price);
+    result = result.sort((a, b) => b.price - a.price);
   } else if (sort === "asc") {
-    result.sort((a, b) => a.price - b.price);
+    result = result.sort((a, b) => a.price - b.price);
   }
   return result;
 }
