@@ -21,11 +21,9 @@ function getFiltered() {
   const search = searchInput.value;
   const category = categorySelect.value;
   const sort = sortSelect.value;
-  console.log(result)
   if (search) {
     result = result.filter((p) => p.name.toLowerCase().includes(search.toLowerCase()));
   }
-  console.log(result)
   if (category !== "all") {
     result = result.filter((p) => p.category === category);
   }
@@ -56,6 +54,9 @@ sortSelect.addEventListener("change", render);
 
 resetBtn.addEventListener("click", () => {
   searchInput.value = "";
+  categorySelect.value = "all";
+  sortSelect.value = 'default';
+  render()
 });
 
 render()
