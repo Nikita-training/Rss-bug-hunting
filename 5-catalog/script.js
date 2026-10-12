@@ -21,7 +21,6 @@ function getFiltered() {
   const search = searchInput.value;
   const category = categorySelect.value;
   const sort = sortSelect.value;
-
   if (search) {
     result = result.filter((p) => p.name === search);
   }
@@ -57,3 +56,5 @@ sortSelect.addEventListener("change", render);
 resetBtn.addEventListener("click", () => {
   searchInput.value = "";
 });
+
+render()
