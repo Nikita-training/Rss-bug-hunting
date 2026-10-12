@@ -22,7 +22,7 @@ function getFiltered() {
   const category = categorySelect.value;
   const sort = sortSelect.value;
   if (search) {
-    result = result.filter((p) => p.name === search);
+    result = result.filter((p) => p.name.toLowerCase() === search.toLowerCase());
   }
 
   if (category !== "all") {
@@ -34,7 +34,6 @@ function getFiltered() {
   } else if (sort === "desc") {
     result.sort((a, b) => a.price - b.price);
   }
-
   return result;
 }
 
